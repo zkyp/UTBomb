@@ -293,7 +293,11 @@ Thanks to: not playunreal
 
 ## Licence
 
-[Creative Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/)
-(CC BY-NC 4.0), see `LICENSE`. You may use, change and share it, but you must **credit zkyp** and you may **not use
-it commercially** (no selling it, no paid access). This covers the code and text in this repository, not
-Unreal Tournament (Epic Games) or InstaGibPlus.
+[PolyForm Noncommercial License 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0), see `LICENSE`.
+
+You may use, change and share it for any **noncommercial** purpose. Personal use, hobby projects, communities,
+education and charities are all fine, and so is running a free community server. You may **not** use it commercially:
+no selling it and no paid access. Whenever you pass it on, keep the `LICENSE` file. It carries the line
+`Required Notice: Copyright (c) 2026 zkyp`, which is how you credit zkyp.
+
+This covers the code and text in this repository, not Unreal Tournament (Epic Games) or InstaGibPlus.
