@@ -11,6 +11,7 @@ Free to use and change, **not for commercial use**, credit zkyp. Licence: CC BY-
 > (within the licence).
 
    Short introduction video (youtube):
+   
    [![UTBomb short introduction video](https://img.youtube.com/vi/7urG5g7vCxM/hqdefault.jpg)](https://www.youtube.com/watch?v=7urG5g7vCxM)
 
 ## How a match plays
