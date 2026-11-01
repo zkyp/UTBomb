@@ -22,26 +22,139 @@ Free to use and change, **not for commercial use**, credit zkyp. Licence: CC BY-
   The carrier drops it on death or when translocating, and a dropped bomb shows a banner and a marker to the attackers.
 - **The match.** The first team to **10 rounds** wins. The sides swap after round 9. At 9 : 9 there is an
   **overtime**: first to 3 overtime rounds, with another side swap.
-- **Comeback.** A team that loses **5 rounds in a row** gets a **super class** for one random player in the next
-  round (150 armour, 125 health, Damage Amplifier, Sniper 8 or Shock 14 and more).
+- **Comeback.** A team that loses **5 rounds in a row** gets **Superman** (the super class) for one random
+  player in the next round: more armour and health, the Damage Amplifier and the pick of the best weapons.
+  See [Superman](#superman-the-comeback-class).
 - **Bots** spawn, pick classes and fight, but do not carry, plant or defuse the bomb.
 
-### Classes
+## Classes
 
-Weapons come in three **tiers**. Tier 1 is normally one fixed strong weapon (Shock or Sniper). Tiers 2 and 3 offer
-a short list to choose from, in the class menu or with `mutate t2 flak`. Every class also has one or more
-**wildcards** (Translocator with a limited number of uses, Ammo Pack, Keg, Defuse Kit, No self damage, No team
-damage). Everything is defined in `System/UTBombClasses.ini`, and no recompiling is needed to change it.
+Before every round you pick one of seven classes in the class menu (it opens by itself during the freeze). A class
+decides your **armour**, **health**, **speed**, the **weapons** you can choose from and your **wildcards**.
+Everyone also carries the Impact Hammer. All numbers live in `System/UTBombClasses.ini` and can be changed
+without recompiling.
 
-| Class | Armour | Idea |
+### Weapon tiers
+
+Each class has up to three weapon slots, called tiers:
+
+| Tier | What it normally holds | Your choice |
 |---|---|---|
-| Default | 100 | All-rounder with 5 translocations. |
-| HammerKing | 75 | Impact Hammer jumps without self damage. Flak only. |
-| SniperNoob | 50 | Sniper plus a weak weapon, 6 translocations. |
-| FastGirl | 50 | Speed 130 and two wall dodges. Weak weapons. |
-| Spammer | 150 | Tank with an Ammo Pack and no Shock or Sniper. |
-| Booster | 125 | 70 health that regenerates. Never hurts teammates, so she can launch them. |
-| Fatboy | 200 | Keg (+100 health), Shock 50, speed 70. |
+| **Tier 1** | The strong weapon: Shock Rifle or Sniper Rifle (or nothing). | Fixed to the class. Only Superman gets two to choose from. |
+| **Tier 2** | A close-range weapon: Rocket Launcher, Flak Cannon, Pulse Gun or Minigun. | A short list. The first entry is the default. |
+| **Tier 3** | A weak backup: Ripper, Bio Rifle or Enforcer. | A short list. The first entry is the default. |
+
+- **Choosing.** The class menu has one button per tier. Click it to go to the next weapon on the list. Or use the
+  commands `mutate t2 flak`, `mutate t3 bio` and `mutate t2next`. Your choices are remembered per class.
+- **When it counts.** A choice made during warm-up or the freeze is used straight away. One made during a live round
+  is used from the next round.
+- **Ammo.** Every weapon on a list has its own ammo, set by the class: `Shock 24` means 24 rounds. The numbers stay
+  inside each weapon's stock maximum (Minigun 199, most others 50).
+- **Minigun and Enforcer** share their ammo in UT99, so the game never lets one player have both.
+- **Empty tiers are normal.** A class can leave a tier empty. The Spammer has no Shock or Sniper at all and is
+  balanced by armour instead.
+- **How strong is a weapon?** Top: Shock, Sniper. Strong: Rocket, Flak, Pulse, Minigun. Weak: Ripper, Bio, Enforcer.
+  The class set follows one rule: every mobility or toughness advantage is paid for somewhere else.
+
+### The seven classes
+
+`Shock 24` is the weapon and its ammo. In the tier columns, `/` means you pick one.
+
+| Class | Armour | Health | Speed | Tier 1 | Tier 2 | Tier 3 | Wildcards |
+|---|---|---|---|---|---|---|---|
+| **Default** | 100 | 100 | normal | Shock 24 | Rocket 18 / Flak 20 / Pulse 50 | none | Translocator x5 |
+| **HammerKing** | 75 | 100 | normal | Shock 12 | Flak 24 | none | No self damage |
+| **SniperNoob** | 50 | 100 | normal | Sniper 16 | none | Ripper 30 / Bio 20 | Translocator x6 |
+| **FastGirl** | 50 | 100 | **130%** | none | Flak 12 | Ripper 30 / Enforcer 40 / Bio 20 | none, but two wall dodges (IG+) |
+| **Spammer** | 150 | 100 | normal | none | Flak 30 / Pulse 60 / Rocket 18 | Ripper 40 / Bio 30 | Ammo Pack (on tier 2) |
+| **Booster** | 125 | **70**, regenerates 3 a second | normal | Shock 20 | Rocket 18 | none | No team damage |
+| **Fatboy** | 200 | 100 + 100 (Keg) | **70%** | Shock 50 | Minigun 199 / Rocket 18 / Flak 24 | none | Keg |
+
+- **Default** is the all-rounder and class 0, so it is what you get if you never open the menu. Five translocations
+  to push in or get out.
+- **HammerKing** jumps with the Impact Hammer and takes no damage from it. His only tier 2 weapon is the Flak: with a
+  Rocket Launcher he could rocket jump as well, which would be too much.
+- **SniperNoob** has the Sniper, which is strong at any range, plus six translocations to change position. No tier 2.
+- **FastGirl** is fast (130%) and has two wall dodges, but little armour and only weak weapons.
+- **Spammer** is the tank: 150 armour and an Ammo Pack that adds half again to the tier 2 weapon (Flak 30 becomes 45,
+  Pulse 60 becomes 90, Rocket 18 becomes 27). Close-range spam, with no Shock or Sniper.
+- **Booster** has only 70 health but heals 3 a second after a few seconds without being hit, up to 70. Her rockets and
+  hammer never hurt teammates, but they still push them, so she can launch allies across the map.
+- **Fatboy** is slow (70%) and very tough: 200 armour plus 200 health at the start (100 and the Keg's 100), with a
+  Shock Rifle with 50 rounds and the choice of Minigun, Rocket or Flak.
+
+### Wildcards
+
+Every class has a fixed wildcard (it cannot be changed in game). A class can have more than one, written like
+`Wild=NoSelfDamage,Translocator:5`.
+
+| Wildcard | What it does |
+|---|---|
+| **Translocator** | Gives you the Translocator. `Translocator:5` limits it to 5 uses a round: a counter on the screen shows how many are left, and after the last one the Translocator is taken away. Without a number it is unlimited (no default class does that). |
+| **Ammo Pack** | Adds 50% ammo to the weapon in one tier of the class (the `PackSlot` setting). |
+| **Keg** | +100 health at the start of the round, on top of the class's own health. |
+| **Defuse Kit** | Defusing takes half the time. Works for defenders only: an attacker with it gets the Translocator instead. No default class uses it. |
+| **No self damage** | Your own weapons do not hurt you. Rocket and Impact Hammer jumps cost no health, and you still get pushed. |
+| **No team damage** | Your weapons never hurt your teammates. They still push them. |
+| **None** | Nothing. |
+
+### Other class settings
+
+Each class line in `UTBombClasses.ini` can also set:
+
+| Setting | Meaning |
+|---|---|
+| `Armor` | 0 to 300. 1-50 is thigh pads, 51-100 body armour, 101-150 both, 151-300 a bigger body armour plus pads (200 = 150 + 50). Armour only soaks part of each hit, so it is worth about one health point per point, as long as enough health is left. |
+| `Health` | Starting health, 50 to 400 (default 100). Regeneration stops at this value. |
+| `Speed` | Movement speed in percent, 30 to 250. Only clear steps (130 fast, 70 slow) can really be felt. |
+| `Regen` | Health regained per second, after a short delay without damage (`RegenDelay`). |
+| `WallDodge`, `Dodges` | Wall dodging and how many dodges in a row. These are IG+ features. |
+| `SelfDamage`, `HammerSelfDamage` | Percentage of self damage you take (100 = normal, 0 = none). |
+| `Amp` | `Amp=1` starts the round with the Damage Amplifier active. |
+| `Model`, `Skin`, `Face`, `Portrait` | Optional look of the class, see **Class skins**. |
+
+You can add your own classes (up to 15) by writing a new line, for example:
+
+```
+ClassDef[7]=Sapper | Armor=50 | T1=Shock:16 | T2=Flak:24,Pulse:40 | Wild=DefuseKit
+```
+
+`T1`, `T2` and `T3` are the three tiers (a comma between weapons means "pick one of these", while a comma in
+`Wild=` means "all of these at once"). The comments in the file explain every setting.
+
+## Superman (the comeback class)
+
+If a team loses **5 rounds in a row**, one of its players becomes **Superman** in the next round. It is the mode's
+comeback mechanic, so a team that is getting crushed gets one very strong player.
+
+**What happens**
+- The game picks **one random player** from the losing team (a human or a bot) at the start of the next round and
+  announces it to everybody in the chat. The player gets a big message on their screen.
+- It is **assigned, not picked**. Nobody can choose it, and Superman cannot change class during that round.
+  He does still choose his own weapons from the lists below, in the class menu during the freeze.
+- After the round he gets his normal class back. The team's count then starts again from zero, so it can happen
+  again after another five lost rounds in a row.
+- The count is kept per team, across the halftime side swap. It never triggers in overtime, and the count is cleared
+  when overtime starts.
+
+**What Superman gains**
+
+| | |
+|---|---|
+| **Armour** | 150 |
+| **Health** | 125 |
+| **Damage Amplifier** | Starts the round with it active (the usual purple glow and extra damage, for its normal duration of about 30 seconds). |
+| **Speed** | 80%, a little slow |
+| **Translocator** | 5 uses |
+| **No self damage** | Rocket and Impact Hammer jumps cost nothing. |
+| **Tier 1** | Sniper Rifle 8 / Shock Rifle 14 |
+| **Tier 2** | Rocket Launcher 24 / Flak Cannon 30 |
+| **Tier 3** | Minigun 199 / Pulse Gun 60 |
+
+Settings: `SuperLossStreak` in `UTBomb.ini` sets the number of lost rounds (5 by default, 0 turns the feature
+off). The class itself is the `SuperDef` line in `UTBombClasses.ini`, written like any other class line. It is
+called `SUPER` there, so rename it if you like (for example to Superman). The ammo numbers for the Rocket, Flak,
+Minigun and Pulse are placeholders.
 
 ## What you need
 
