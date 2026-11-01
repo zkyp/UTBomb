@@ -10,6 +10,8 @@ Free to use and change, **not for commercial use**, credit zkyp. Licence: CC BY-
 > 5 v 5 session was never played, so expect rough edges and untuned balance. Fork it and do what you like with it
 > (within the licence).
 
+   [![UTBomb short introduction video](https://img.youtube.com/vi/7urG5g7vCxM/hqdefault.jpg)](https://www.youtube.com/watch?v=7urG5g7vCxM)
+
 ## How a match plays
 
 - **Round flow.** Warm-up and ready-up before the first round. Then a **15 second freeze**: everybody is unarmed
