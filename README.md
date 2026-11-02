@@ -4,7 +4,6 @@
 defenders stop them, nobody respawns, and everyone picks a class (armour, speed, weapon choices) before each round.
 **Requires [InstaGibPlus](https://github.com/rxut/InstaGibPlus).** Build `UTBomb.u`, put it on the server with
 `ServerPackages=UTBomb`, and run the game type `UTBomb.BombGame` on a `BMB-` map (no map is included).
-Free to use and change, **not for commercial use**, credit zkyp. Licence: CC BY-NC 4.0.
 
 > **Status:** development has stopped. It runs on a real dedicated server (Linux, with InstaGibPlus), but a full
 > 5 v 5 session was never played, so expect rough edges and untuned balance. Fork it and do what you like with it
